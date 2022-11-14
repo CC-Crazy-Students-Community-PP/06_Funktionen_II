@@ -27,7 +27,7 @@
         let num = Number( ipnutStr );
         return num;
     }
-    output1( getOp1() )
+    // output1( getOp1() )
     // module: operator input:
     function getOp1() { 
         let op1 = prompt( "Please insert correct operator: " );
@@ -35,7 +35,7 @@
         if ( isValidOp(op1) ) {
             return op1;
         } else {
-            op1 = prompt( "Please insert correct operator: " );
+            getOp1();
         }
     }
     // module: check if operator input is valid:
@@ -98,55 +98,88 @@
     // output1( mul1(2,2) );                                           // test
     function mul1( a1, b1 ) { return a1 * b1; }                     // alles als Einzeiler
 
-// /***********************************************************************/
-// /*********                     Beispiel 02                    **********/
-// /***********************************************************************/
-//     let plus21 = "+", minus21 = "-", divide211 = "/", divide212 = ":", multiply21 = "*";
-//     let plus22 = "+", minus22 = "-", divide221 = "/", divide222 = ":", multiply22 = "*";
-//     let userInput2 = prompt( "Gib Deine Rechnung ein (5/2, 5*2): " );
-//     getInput2( userInput2 );
+/***********************************************************************/
+/*********                     Beispiel 02                    **********/
+/***********************************************************************/
+    let userInput2 = prompt( "Gib Deine Rechnung ein (5/2, 5*2): " );
+    getInput2( userInput2 );
 
-//     function output2( outputData2 ){ console.log( outputData2 ) }
+    function output2( outputData2 ){ console.log( outputData2 ) }
 
-//     function calculate2(a2, b2, o2) {
-//         switch (o2) {
-//             case "+":               // addition
-//             case "plus":            // addition
-//                 output2( "Addition von " + a2 + "+" + b2 + " ergibt: " + ( Number( a2 ) + Number( b2 ) ) );
-//                 break;
-//             case "-":               // subtraction
-//             case "minus":           // subtraction
-//                 output2( "Subtraktion von " + a2 + "-" + b2 + " ergibt: " + ( Number( a2 ) - Number( b2 ) ) );
-//                 break;
-//             case "*":               // mutliplication
-//             case "mal":             // mutliplication
-//                 output2( "Multiplikation von " + a2 + "*" + b2 + " ergibt: " + ( Number( a2 ) * Number( b2 ) ) );
-//                 break;
-//             case "/":               // division1
-//             case ":":               // division2
-//             case "geteilt":         // division2
-//             case "geteilt durch":   // division2
-//                 output2( "Division von " + a2 + "/" + b2 + " ergibt: " + ( Number( a2 ) / Number( b2 ) ) );
-//                 break;
-//             default:                // default
-//                 output2( "Eingabefehler!!\nEingabeschema:\n5*2 oder 6+5 oder 8/2" );
-//                 break;
-//         }
-//     }
+    // function calculate2(a2, b2, o2) {
+    //     switch (o2) {
+    //         case "+":               // addition
+    //         case "plus":            // addition
+    //             output2( "Addition von " + a2 + "+" + b2 + " ergibt: " + ( Number( a2 ) + Number( b2 ) ) );
+    //             break;
+    //         case "-":               // subtraction
+    //         case "minus":           // subtraction
+    //             output2( "Subtraktion von " + a2 + "-" + b2 + " ergibt: " + ( Number( a2 ) - Number( b2 ) ) );
+    //             break;
+    //         case "*":               // mutliplication
+    //         case "mal":             // mutliplication
+    //             output2( "Multiplikation von " + a2 + "*" + b2 + " ergibt: " + ( Number( a2 ) * Number( b2 ) ) );
+    //             break;
+    //         case "/":               // division1
+    //         case ":":               // division2
+    //         case "geteilt":         // division2
+    //         case "geteilt durch":   // division2
+    //             output2( "Division von " + a2 + "/" + b2 + " ergibt: " + ( Number( a2 ) / Number( b2 ) ) );
+    //             break;
+    //         default:                // default
+    //             output2( "Eingabefehler!!\nEingabeschema:\n5*2 oder 6+5 oder 8/2" );
+    //             break;
+    //     }
+    // }
+    // function getInput2( userInput2 ) {
+    //     switch ( userInput2.indexOf() ) {
+    //         case "+":
+    //             console.log( "Index gefunden" );
+    //             break;
+    //         default:
+    //             console.log( "Kein Index gefunden" )
+    //             break;
+    //     }
 
-//     function getInput2( userInputArray2 ) {
-//         if ( userInputArray2.indexOf( plus21 ) != -1 || userInputArray2.indexOf( plus22 ) != -1)  {
-//             calculate2( userInputArray2.split( plus2 )[0], userInputArray2.split( plus2 )[1], plus2 );
-//         } else if ( userInputArray2.indexOf( minus2 ) != -1)  {
-//             calculate2( userInputArray2.split( minus2 )[0], userInputArray2.split( minus2 )[1], minus2 );
-//         } else if ( userInputArray2.indexOf( divide21 ) != -1)  {
-//             calculate2( userInputArray2.split( divide21 )[0], userInputArray2.split( divide21 )[1], divide21 );
-//         } else if ( userInputArray2.indexOf( divide22 ) != -1)  {
-//             calculate2( userInputArray2.split( divide22 )[0], userInputArray2.split( divide22 )[1], divide22 );
-//         } else if ( userInputArray2.indexOf( multiply2 ) != -1)  {
-//             calculate2( userInputArray2.split( multiply2 )[0], userInputArray2.split( multiply2 )[1], multiply2 );
-//         } else {
-//             calculate2 ( false, false, false );
-//         }
-//     }
+        // if ( userInput2.indexOf( "+" ) != -1 ) {
+        //     let addArray2 = userInput2.split( "+" );
+
+        //     calculate2( uaddArray2[0], addArray2[1], plus2 );
+        // } else if ( userInputArray2.indexOf( minus2 ) != -1)  {
+        //     calculate2( userInputArray2.split( minus2 )[0], userInputArray2.split( minus2 )[1], minus2 );
+        // } else if ( userInputArray2.indexOf( divide21 ) != -1)  {
+        //     calculate2( userInputArray2.split( divide21 )[0], userInputArray2.split( divide21 )[1], divide21 );
+        // } else if ( userInputArray2.indexOf( divide22 ) != -1)  {
+        //     calculate2( userInputArray2.split( divide22 )[0], userInputArray2.split( divide22 )[1], divide22 );
+        // } else if ( userInputArray2.indexOf( multiply2 ) != -1)  {
+        //     calculate2( userInputArray2.split( multiply2 )[0], userInputArray2.split( multiply2 )[1], multiply2 );
+        // } else {
+        //     calculate2 ( false, false, false );
+        // }
+   // }
+
+    function calculate2( userInputArray2, opElement2 ) {
+        output2( "Output: " +  userInputArray2 + ", " + opElement2 );
+        switch (opElement2) {
+            case "+":
+            case " plus ":
+            case " add ":
+                const userOp = "+";
+                break;
+            default:
+                const userOp = false;
+                break;
+        }
+        const userFirstNum2 = userInputArray2[ 0 ], userLastNum2 = userInputArray2[ 1 ];
+
+    }
+    function getInput2( userInput2 ) {
+        let opArray2 = [ "+", "-", "*", "/", ":" ];
+        opArray2.forEach( opElement2 => {
+            if ( userInput2.indexOf( opElement2 ) != -1 ) {
+                const userInputArray2 = userInput2.split( opElement2 );
+                calculate2( userInputArray2, opElement2 );
+            }
+        });
+    }
 
