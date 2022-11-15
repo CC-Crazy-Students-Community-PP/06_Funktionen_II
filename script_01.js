@@ -101,18 +101,21 @@
 /***********************************************************************/
 /*********                     Beispiel 02                    **********/
 /***********************************************************************/
-    const userInput2 = prompt( "Gib eine Rechnung ein:\nBeispiele:\n[ 2*3 ], [ 7 mal 8 ], [ 9 / 5 ] " );
+    // module: declarations
     // const userInput2 = "40 mal 5";
+    const userInput2 = prompt( "Gib eine Rechnung ein:\nBeispiele:\n[ 2*3 ], [ 7 mal 8 ], [ 9 / 5 ] " );
     const addOp2 = [ "+", "add", " add ", "plus", " plus " ];
     const subOp2 = [ "-", "minus", " minus ", "subtract", " subtract " ];
     const mulOp2 = [ "*", "mal", " mal ", "multiply", " multiply " ];
     const divOp2 = [ "/", ":", "geteilt", " geteilt ", "geteilt durch", " geteilt durch ", "divide", " divide ", "divide by", " divide by " ];
     const opArr2 = [ ...addOp2, ...subOp2, ...mulOp2, ...divOp2 ];
-
+    // module: start app
     calculate2( userInput2 );
-
+    // module: output
+    // output2( "Test" );
     function output2( o2 ){ console.log( o2 ); }
-
+    // module: calculate
+    // output2( calculate2( "4+5" ) );
     function calculate2( userInput2 ) {
         let calcVal = checkOp2( userInput2 );
         if ( calcVal.calcOpName == "Division" && calcVal.numberTwo == 0 ) {
@@ -127,7 +130,8 @@
             }
         }
     }
-
+    // module: check the operator
+    // output2( checkOp2( "4+5" ) );
     function checkOp2( userInput2 ) {
         let resOp = false;
         opArr2.forEach( op2 => {
@@ -162,3 +166,7 @@
         });
         return resOp;
     }
+
+/***********************************************************************/
+/*********                     Beispiel 03                    **********/
+/***********************************************************************/
