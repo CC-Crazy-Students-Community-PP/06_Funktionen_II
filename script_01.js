@@ -103,14 +103,14 @@
 /************************************************************************/
     // module: declarations
     // const userInput2 = "40 mal 5";
-    const userInput2 = prompt( "Gib eine Rechnung ein:\nBeispiele:\n[ 2*3 ], [ 7 mal 8 ], [ 9 / 5 ] " );
+    // const userInput2 = prompt( "Gib eine Rechnung ein:\nBeispiele:\n[ 2*3 ], [ 7 mal 8 ], [ 9 / 5 ] " );
     const addOp2 = [ "+", "add", " add ", "plus", " plus " ];
     const subOp2 = [ "-", "minus", " minus ", "subtract", " subtract " ];
     const mulOp2 = [ "*", "mal", " mal ", "multiply", " multiply " ];
     const divOp2 = [ "/", ":", "geteilt", " geteilt ", "geteilt durch", " geteilt durch ", "divide", " divide ", "divide by", " divide by " ];
     const opArr2 = [ ...addOp2, ...subOp2, ...mulOp2, ...divOp2 ];
     // module: start app
-    calculate2( userInput2 );
+    // calculate2( userInput2 );
     // module: output
     // output2( "Test" );
     function output2( o2 ){ console.log( o2 ); }
@@ -170,3 +170,27 @@
 /************************************************************************/
 /*********                     Beispiel 03                     **********/
 /************************************************************************/
+    // module: calculator:
+    // agreement: +, -, *, /, :
+    console.log( calculate1( 2, 2, "+" ) );
+    console.log( calculate1( 2, 2, "-" ) );
+    console.log( calculate1( 2, 2, "*" ) );
+    console.log( calculate1( 2, 2, "/" ) );
+    console.log( calculate1( 2, 2, ":" ) );
+    console.log( calculate1( 2, 2, "%" ) );
+    console.log( calculate1( 2, 2, "!" ) );
+    function calculate1( a3, b3, op3 ) {
+        switch ( op3 ) {
+            case "+":                   // addition
+                return a3 + b3;
+            case "-":                   // subtraction
+                return a3 - b3;
+            case "*":                   // mutliplication
+                return a3 * b3;
+            case "/":                   // division1
+            case ":":                   // division2
+                return ( b3 == 0 ) ? "Division by 0 not possible!" : a3 / b3;
+            default:                    // default
+                return "Error: wrong operator used";
+        }
+    }
