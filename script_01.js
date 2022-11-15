@@ -181,7 +181,7 @@
     console.log( calculate1( 2, 2, "!" ) );
     function calculate1( a3, b3, op3 ) {
         switch ( op3 ) {
-            case "+":                   // addition
+            case "+":                   // addition 
                 return a3 + b3;
             case "-":                   // subtraction
                 return a3 - b3;
