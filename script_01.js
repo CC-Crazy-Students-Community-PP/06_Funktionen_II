@@ -19,24 +19,50 @@
     // application / app:
     starApp();
     function starApp() {
-        output1( calculate1( getNumber1("first"), getNumber1("second"), getOp1() ) );
+        let num11,num12,op;
+        isNotAborted1 = true;
+    
+        if (isNotAborted1){ num11 = getNumber1( "first" ); }
+        if (isNotAborted1){ num12 = getNumber1( "second" ); }
+        if (isNotAborted1){ op = getOp1(); }
+        
+        if (isNotAborted1){
+            output1( calculate1( num11, num12, op ) ); 
+        } else{
+            output1("Aborted by user!");
+        }
     }
     // module: number input:
     function getNumber1( figure ) {
-        let ipnutStr = prompt( "Please insert " + figure + " number: " );
-        let num = Number( ipnutStr );
-        return num;
+        const displayStr1 = "Please insert " + figure + " number: ";
+        let ipnutStr1 = prompt( displayStr1 ) 
+        let num1 = Number( ipnutStr1 );
+
+        // if num is NOT a number AND user DIDN'T click at Abbrechen
+        while ( isNaN( num1 ) && ( ipnutStr1 !== null ) ) {
+            ipnutStr1 =  prompt( displayStr1 );
+            num1 = parseInt( ipnutStr1 ); 
+        }
+        
+        // if this is aborted, ALL gets aborted ...
+        if( ipnutStr1 == null ){ isNotAborted1 = false; }
+        return num1;
+    
+        return num1;
     }
     // output1( getOp1() )
     // module: operator input:
     function getOp1() { 
-        let op1 = prompt( "Please insert correct operator: " );
-        //ist op1 gültig? true or false
-        if ( isValidOp(op1) ) {
-            return op1;
-        } else {
-            getOp1();
+        const opStr1 = "Please insert correct operator [ + | - | * | : | / ]:";
+        let op1 = prompt( opStr1 );
+
+         // if op is NOT valid AND user DIDN'T click at abort
+        while (isNotValidOp(op) && (op !== null)) {
+            op1 = prompt(displayStr);
         }
+    
+        if (op1 == null){isNotAborted = false;}
+        return op1;
     }
     // module: check if operator input is valid:
     function isValidOp( op1 ) {
