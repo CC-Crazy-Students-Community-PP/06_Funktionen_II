@@ -16,113 +16,125 @@
 /*********                     Beispiel 01                     **********/
 /************************************************************************/
 
-    // application / app:
-    starApp();
-    function starApp() {
-        let num11,num12,op;
+    // Globale Variable
+    let isNotAborted1; 
+
+    // application / App
+    startApp( );
+    function startApp( ) {
+        let num11, num12, op1;
         isNotAborted1 = true;
-    
-        if (isNotAborted1){ num11 = getNumber1( "first" ); }
-        if (isNotAborted1){ num12 = getNumber1( "second" ); }
-        if (isNotAborted1){ op = getOp1(); }
+
+        if ( isNotAborted1 ){ num11 = getNumber1( "1st" ); }
+        if ( isNotAborted1 ){ num12 = getNumber1( "2nd" ); }
+        if ( isNotAborted1 ){ op1 = getOp1( ); }
         
-        if (isNotAborted1){
-            output1( calculate1( num11, num12, op ) ); 
+        if ( isNotAborted1 ){
+            output1( calculator1( num11, num12, op1 ) ); 
         } else{
-            output1("Aborted by user!");
+            output1( "Aborted by user!" );
         }
     }
-    // module: number input:
-    function getNumber1( figure ) {
-        const displayStr1 = "Please insert " + figure + " number: ";
-        let ipnutStr1 = prompt( displayStr1 ) 
-        let num1 = Number( ipnutStr1 );
+    // module: data input | test:
+    //output1( getNumber1( "1st" ) );
+    function getNumber1( figure1 ) {
+        const displayStr1 = "Please insert " + figure1 + " number:";
+        let inputStr1 = prompt( displayStr1 ) 
+        let num1 = parseInt( inputStr1 );
 
-        // if num is NOT a number AND user DIDN'T click at Abbrechen
-        while ( isNaN( num1 ) && ( ipnutStr1 !== null ) ) {
-            ipnutStr1 =  prompt( displayStr1 );
-            num1 = parseInt( ipnutStr1 ); 
+        // if num1 is NOT a1 number AND user DIDN'T click at Abbrechen
+        while ( isNaN( num1 ) && ( inputStr1 !== null ) ) {
+            inputStr1 =  prompt( displayStr1 );
+            num1 = parseInt( inputStr1 ); 
         }
         
         // if this is aborted, ALL gets aborted ...
-        if( ipnutStr1 == null ){ isNotAborted1 = false; }
+        if( inputStr1 == null ){isNotAborted1 = false;}
         return num1;
-    
-        return num1;
+            
     }
-    // output1( getOp1() )
-    // module: operator input:
-    function getOp1() { 
-        const opStr1 = "Please insert correct operator [ + | - | * | : | / ]:";
-        let op1 = prompt( opStr1 );
+    // module: input operator | Test:
+    //output1( getOp1( ) );
+    function getOp1( ) {
+        const displayStr1 = "Please insert correct operator [ + | - | * | : | / ]:";
+        let op1 = prompt( displayStr1 ); 
 
-         // if op is NOT valid AND user DIDN'T click at abort
-        while (isNotValidOp(op) && (op !== null)) {
-            op1 = prompt(displayStr);
-        }
-    
-        if (op1 == null){isNotAborted = false;}
+        // if op1 is NOT valid AND user DIDN'T click at abort
+        while ( isNotValidOp1( op1 ) && ( op1 !== null ) ) { op1 = prompt( displayStr1 ); }
+
+        if ( op1 == null ){ isNotAborted1 = false; }
         return op1;
     }
-    // module: check if operator input is valid:
-    function isValidOp( op1 ) {
-        return op1 == "+" || op1 == "-" || op1 == "*" || op1 == "/" || op1 == ":";
+    // module: check operator | Test:
+    // agreement : "+", "-", "*", ":", "/"
+    // output1( isNotValidOp1( "+" ) );
+    // output1( isNotValidOp1( "-" ) );
+    // output1( isNotValidOp1( "*" ) );
+    // output1( isNotValidOp1( ":" ) );
+    // output1( isNotValidOp1( "/" ) );
+    // output1( isNotValidOp1( "#?#" ) );
+    // output1( isNotValidOp1( "" ) );
+    function isNotValidOp1( op1 ) {
+        return op1 != "+" && op1 != "-" && op1 != "*" && op1 != ":" && op1 != "/";
     }
-
-    // module: calculator:
-    // agreement: +, -, *, /, :
-    // output1( calculate1( 2, 2, "+" ) );
-    // output1( calculate1( 2, 2, "-" ) );
-    // output1( calculate1( 2, 2, "*" ) );
-    // output1( calculate1( 2, 2, "/" ) );
-    // output1( calculate1( 2, 2, ":" ) );
-    // output1( calculate1( 2, 2, """ ) );
-    // output1( calculate1( 2, 2, "!" ) );
-    function calculate1( a1, b1, op1 ) {
+    // module: calculator1 | tests:
+    // agreement : "+", "-", "*", ":"
+    // output1( calculator1( 2, 2, "+" ) );
+    // output1( calculator1( 2, 2, "-" ) );
+    // output1( calculator1( 2, 2, "*" ) );
+    // output1( calculator1( 2, 2, ":" ) );
+    // output1( calculator1( 2, 0, "/" ) );
+    // output1( calculator1( 2, 2, "#?!" ) );
+    function calculator1( a1, b1, op1 ) {
         switch ( op1 ) {
-            case "+":                   // addition
-                return add1( a1, b1 );
-            case "-":                   // subtraction
-                return sub1( a1, b1 );
-            case "*":                   // mutliplication
-                return mul1( a1, b1 );
-            case "/":                   // division1
-            case ":":                   // division2
-                return div1( a1, b1 );
-            default:                    // default
-                return "Error: insert wrong";
+            case "+": 							// addition
+                return add( a1, b1 );
+            case "-": 							// subtraktion
+                return subtract1( a1, b1 );
+            case "*": 							// multiplikation
+                return multiply1( a1, b1 );
+            case ":": 							// divison
+            case "/": 							// divison
+                return divide1( a1, b1 );
+            default:  							// Error ...
+                return "Something went wrong!";
         }
     }
-    // module: console output:
-    // output1( "Test" );                  // test
-    // output1( 2 );                       // test
-    function output1( outputData1 ){ 
-        if ( typeof outputData1 == "number" ) {
-            console.log( "The result is: " + outputData1 );
-        } else {
-            console.log( "ERROR: " + outputData1 );
-        }
-    }
-    // module: addition:
-    // output1( add1(2,5) );                                           // test
-    function add1( a1, b1 ) { 
-        let c1 = a1 + b1;                                           // lange ausführliche Schreibweise
-        return c1;                                                  // Ausleitung der Variable
-    }
-    // module: subtraction:
-    // output1( sub1(5,2) );                                           // test
-    function sub1( a1, b1 ) {
-        return a1 - b1;                                             // schnelle Schreibweise und direkte Ausleitung
-    }
-    // module: division:
-    // output1( div1(8,2) );                                           // test
-    function div1( a1, b1 ) { 
-        if ( b1 == 0 ) { return "Division by 0 not possible!"; }
+    // module: division a1 / b1 |  test:
+    // output1( divide1( 2, 3 ) );
+    // output1( divide1( 2, -3 ) );
+    // output1( divide1( 2, 0 ) );
+    // output1( divide1( 0, 2 ) );
+    function divide1( a1, b1 ) {
+        if ( b1 == 0 ) { return "Division by 0 is not possible!"; }
         return a1 / b1; 
     }
-    // module: multiplication:
-    // output1( mul1(2,2) );                                           // test
-    function mul1( a1, b1 ) { return a1 * b1; }                     // alles als Einzeiler
+    // module: multiplication a1 * b1 |  test:
+    // output1( multiply1( 2, 3 ) );
+    // output1( multiply1( 2, -3 ) );
+    // output1( multiply1( 2, 0 ) );
+    function multiply1( a1, b1 ) { return a1 * b1; }
+    // module: subtraction a1 - b1 |  test:
+    // output1( subtract1( 2, 3 ) );
+    // output1( subtract1( 2, -3 ) );
+    // output1( subtract1( 2, 0 ) );
+    function subtract1( a1, b1 ) { return a1 - b1; }
+    // module: addition a1 + b1 |  test:
+    // output1( add( 2, 3 ) );
+    // output1( add( 2, -3 ) );
+    // output1( add( 2, 0 ) );
+    function add( a1, b1 ) { return a1 + b1; }
+    // module: console output1 | test:
+    // output1( "hello" );
+    // output1( 2 );
+    function output1( outputData1 ) {
+        //console.log( typeof outputData1 );
+        if ( typeof outputData1 == "number" ) {
+            console.log( "The result is: " + outputData1 ); 
+        } else {
+            console.log( "ERROR: " + outputData1 ); 
+        }
+    }
 
 /************************************************************************/
 /*********                     Beispiel 02                     **********/
