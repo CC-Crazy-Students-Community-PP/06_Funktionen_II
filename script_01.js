@@ -17,7 +17,7 @@
 /************************************************************************/
 
     // application / app:
-    // starApp();
+    starApp();
     function starApp() {
         output1( calculate1( getNumber1("first"), getNumber1("second"), getOp1() ) );
     }
@@ -172,13 +172,13 @@
 /************************************************************************/
     // module: calculator:
     // agreement: +, -, *, /, :
-    console.log( calculate1( 2, 2, "+" ) );
-    console.log( calculate1( 2, 2, "-" ) );
-    console.log( calculate1( 2, 2, "*" ) );
-    console.log( calculate1( 2, 2, "/" ) );
-    console.log( calculate1( 2, 2, ":" ) );
-    console.log( calculate1( 2, 2, "%" ) );
-    console.log( calculate1( 2, 2, "!" ) );
+    // console.log( calculate1( 2, 2, "+" ) );
+    // console.log( calculate1( 2, 2, "-" ) );
+    // console.log( calculate1( 2, 2, "*" ) );
+    // console.log( calculate1( 2, 2, "/" ) );
+    // console.log( calculate1( 2, 2, ":" ) );
+    // console.log( calculate1( 2, 2, "%" ) );
+    // console.log( calculate1( 2, 2, "!" ) );
     function calculate1( a3, b3, op3 ) {
         switch ( op3 ) {
             case "+":                   // addition 
